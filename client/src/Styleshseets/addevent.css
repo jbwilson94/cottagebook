@@ -1,0 +1,16 @@
+.addevent {
+    padding-top: 3rem;
+}
+
+.btn-event {
+    background-color: darkgreen;
+    border-color: black;
+    width: 100%;
+}
+
+.btn-event:hover {
+    background-color:rgb(3, 73, 3);
+    border-color: black;
+    color: darkgreen
+}
+

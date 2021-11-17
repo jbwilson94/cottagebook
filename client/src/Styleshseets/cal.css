@@ -1,0 +1,30 @@
+.cal-container {
+    padding: 1rem 5rem;
+    border-top-style: solid;
+    border-color: black;
+    height: 90vh;
+}
+
+.fc-event {
+    cursor: pointer;
+}
+
+.fc-daygrid-day-number {
+    color: #343a40;
+    text-decoration: none;
+}
+
+.fc-col-header-cell-cushion {
+    color: darkgreen;
+    text-decoration: none;
+}
+
+.fc .fc-button-primary {
+    background-color: darkgreen;
+    text-decoration: none;
+}
+
+.fc-toolbar-title {
+    color: #343a40;
+}
+
