@@ -21,4 +21,4 @@ app.use(cookieParser())
 app.use("/api/calendar", require("./Controllers/CalendarController"))
 app.use("/user", require("./Routes/User"))
 
-app.listen(5001, () => console.log("Server Started"))
+app.listen(5000, () => console.log("Server Started"))
