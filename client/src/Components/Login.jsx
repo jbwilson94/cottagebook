@@ -29,7 +29,7 @@ const Login = props => {
     return (
         <main className="form-signin" >
             <form onSubmit={onSubmit}>
-                <h1 className ="h3 mb-3 fw-normal login-title">Nine Mile</h1>
+                <h1 className ="h3 mb-3 fw-normal login-title">Cottage Book</h1>
                 <div className ="form-floating">
                     <input  
                         type="text" 
