@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devStart" : "nodemon server.js"
+    "devStart" : "nodemon server.js",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -21,5 +23,9 @@
     "passport": "^0.5.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0"
+  },
+  "engines": {
+    "node" : "16.13.0"
   }
+
 }
