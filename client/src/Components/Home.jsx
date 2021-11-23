@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { AuthContext } from "../Context/AuthContext";
 import Calendar from './Calendar';
@@ -16,9 +16,17 @@ const Home = () => {
         setEvents((await (await axios.get("/api/calendar/get-events")).data));
     }
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            loadEvents();
+        }, 3000)
+        return () => {
+            clearInterval(interval);
+        }
+    }, []);
+
     function renderView() {
         if(view === 'cal') {
-            loadEvents();
             return   <Calendar 
                         events={events} 
                         setEvents={setEvents}/>
