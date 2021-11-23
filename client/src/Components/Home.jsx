@@ -17,6 +17,7 @@ const Home = () => {
     }
 
     useEffect(() => {
+        loadEvents();
         const interval = setInterval(() => {
             loadEvents();
         }, 3000)
