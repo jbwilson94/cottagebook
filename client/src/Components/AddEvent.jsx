@@ -17,9 +17,9 @@ export default function AddEvent({ setView, loadEvents}) {
     }
 
     // Adds a day to make the dates inclusive 
-    function addDay(date) {
+    function addDay(date, inc) {
         const newDate = new Date(date);
-        newDate.setDate(newDate.getDate() + 2);
+        newDate.setDate(newDate.getDate() + inc);
 
         let day = "";
         let month = "";
@@ -50,6 +50,9 @@ export default function AddEvent({ setView, loadEvents}) {
                     <label>Start Date: </label>
                     <input 
                         type="date" 
+                        
+                        // Gets yesterdays date for the min
+                        min={addDay(new Date(), 0)}
                         class="form-control"
                         required={true}
                         onChange={(data) => setEvent({...event, start: data.target.value })} />
@@ -59,9 +62,10 @@ export default function AddEvent({ setView, loadEvents}) {
                     <label>End Date: </label>
                     <input 
                         type="date" 
+                        min={event.start}
                         class="form-control"
                         required={true}
-                        onChange={(data) => setEvent({...event, end: addDay(data.target.value) })}/>
+                        onChange={(data) => setEvent({...event, end: addDay(data.target.value, 2) })}/>
                 </div>
                 <br/>
                 <div class="form-group">
