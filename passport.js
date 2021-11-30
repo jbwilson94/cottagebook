@@ -13,7 +13,7 @@ const cookieExtractor = (req) => {
 // Authorization (protecting endpoints)
 passport.use(new jwtStrategy({
     jwtFromRequest: cookieExtractor,
-    secretOrKey: "poop123"
+    secretOrKey: "12345ab"
 }, (payload, done) => {
     User.findById({_id: payload.sub}, (err,user) => {
         if(err) return done(err, false)

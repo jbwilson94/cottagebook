@@ -7,9 +7,9 @@ const User = require('../Models/User');
 
 const signToken = userID => {
     return JWT.sign({
-        iss: "poop123",
+        iss: "12345ab",
         sub: userID
-    }, "poop123", { expiresIn: "1h" });
+    }, "12345ab", { expiresIn: "1h" });
 }
 
 userRouter.post('/register', ( req,res ) => {
@@ -50,5 +50,10 @@ userRouter.get('/authenticated', passport.authenticate('jwt', { session: false }
     const { username, role} = req.user;
     res.status(200).json({isAuthenticated: true, user: {username, role}});
 });
+
+userRouter.delete('/delete', passport.authenticate('jwt', { session: false }), (req, res) => {
+    const { username } = req.body;
+    User.findOneAndDelete({ username });
+})
 
 module.exports = userRouter;
