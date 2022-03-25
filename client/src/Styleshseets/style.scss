@@ -1,0 +1,30 @@
+.form-signin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    .login-form {
+        min-width: 300px;
+        width: 20vw;
+
+        .error-text {
+            color: red;
+        }
+
+        .login-title {
+            text-align: center;
+            font-size: xx-large;
+            color:darkgreen;
+        }
+
+        .btn-login {
+            background-color: darkgreen;
+            margin-top: 15px;
+
+            &:hover {
+                background-color: forestgreen;
+            }
+        }
+    }
+}
