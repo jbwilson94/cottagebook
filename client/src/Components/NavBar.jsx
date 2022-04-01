@@ -22,7 +22,7 @@ const NavBar = ({ setView, events }) => {
     }
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container container-fluid shadow-risen">
 
                 {/*Nav Brand*/}

@@ -58,9 +58,9 @@ const Login = props => {
 
 
     return (
-        <main className="form-signin" >
+        <main className="login" >
             <form onSubmit={onSubmit} className="login-form">
-                <h1 className ="h3 mb-3 fw-normal login-title">Cottage Book</h1>
+                <h1 className ="login-title">Cottage Book</h1>
                 <p className="error-text">{error}</p>
                 <div className ="form-floating">
                     <input  

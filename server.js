@@ -20,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 app.use(passport.initialize());
 app.use(cookieParser())
 
+app.use("/mail", require("./Controllers/NodemailerController"))
 app.use("/api/calendar", require("./Controllers/CalendarController"))
 app.use("/user", require("./Routes/User"))
 
@@ -30,4 +31,4 @@ if(process.env.NODE_ENV === 'production') {
   })
 };
 
-app.listen(port || 5000, () => console.log("Server Started"))
+app.listen(port || 5000, () => console.log("Server Started"));

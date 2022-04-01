@@ -10,10 +10,13 @@ export default function AddEvent({ setView, loadEvents}) {
         start: "",
         end: "",
         people: 1
-    })
+    });
 
     async function handleEventAdd(data) {
         await axios.post("/api/calendar/create-event", data);
+        await axios.post("/mail/send-email", {
+            message: data.title+" has booked from "+data.start+" to "+data.end+" with "+data.people+" people."
+        });
     }
 
     // Adds a day to make the dates inclusive 

@@ -1,4 +1,4 @@
-.form-signin {
+.login {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,5 +26,11 @@
                 background-color: forestgreen;
             }
         }
+    }
+}
+
+.navbar {
+    .container {
+        max-width: 95vw;
     }
 }
