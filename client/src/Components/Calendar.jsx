@@ -9,7 +9,7 @@ import axios from 'axios';
 
 export default function Calendar({ events }) {
     const [showEventCard, setShowEventCard] = useState(false);
-    const [targetEvent, setTargetEvent] = useState(false);
+    const [targetEvent, setTargetEvent] = useState();
     const { user } = useContext(AuthContext);
 
     function setColors(){
@@ -22,7 +22,12 @@ export default function Calendar({ events }) {
     }
 
     async function deleteEvent() {
-        await axios.delete("/api/calendar/delete-event", { data: { _id: targetEvent.event._def.extendedProps._id } });
+        await Promise.all([
+            axios.delete("/api/calendar/delete-event", { 
+                data: { _id: targetEvent.event._def.extendedProps._id } }),
+            axios.post("/mail/send-email", {
+                message: targetEvent.event.title+" has removed booking from "+targetEvent.event.start+" to "+targetEvent.event.end+"."})
+            ]);
     }
 
     function onClickEvent(event) {
