@@ -1,57 +1,83 @@
-import { Form, Modal, Button } from 'react-bootstrap';
-import { useState } from 'react';
+import { Form, Modal, Button } from "react-bootstrap";
+import { useState } from "react";
 
 export default function ChangePass({ show, setShow, username }) {
-    const [ pass1, setPass1 ] = useState('');
-    const [ pass2, setPass2 ] = useState('');
-    const [ message, setMessage ] = useState('');
+  const [pass1, setPass1] = useState("");
+  const [pass2, setPass2] = useState("");
+  const [message, setMessage] = useState("");
+  const [passMatch, setPassMatch] = useState(false);
 
-    const handleClose = () => { setShow(false) };
+  const handleClose = () => {
+    setShow(false);
+  };
 
-    const handleChangePass = () => {
-        
-    };
+  const handleChangePass = (e) => {
+    e.preventDefault();
+  };
 
-    function checkPassMatch() {
-        if(pass1 === pass2 ) {
-
-        } else {
-
-        }
+  function checkPassMatch(value1, value2) {
+    if(value1 === "") {
+        setMessage("");
+        setPassMatch(false);
+        return false;
     }
+    if (value1 === value2) {
+        setPassMatch(true);
+        setMessage("");
+        return true;
+    } else {
+        setPassMatch(false);
+        setMessage("passwords do not match");
+        return false;
+    }
+  }
 
-    return (
-        <div>
-            {/*Change Pass Modal */}
-            <Modal show={show}>
-                <Modal.Header closeButton onClick={handleClose}>
-                    <Modal.Title> { username } </Modal.Title>
-                </Modal.Header>
+  return (
+    <div>
+      {/*Change Pass Modal */}
+      <Modal show={show}>
+        <Modal.Header closeButton onClick={handleClose}>
+          <Modal.Title> {username} </Modal.Title>
+        </Modal.Header>
 
-                <Modal.Body>
-                    <Form>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Control type="password" placeholder="New Password" value={pass1} onChange={e => setPass1(e.target.value)} />
-                        </Form.Group>
+        <Modal.Body>
+            {message}
+          <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Control
+                type="password"
+                placeholder="New Password"
+                value={pass1}
+                onChange={(e) => {
+                    setPass1(e.target.value);
+                    checkPassMatch(e.target.value,pass2);
+                }}
+              />
+            </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formBasicPassword">
-                            <Form.Control type="password" placeholder="Confirm Password" value={pass2} onChange={e => {
-                                setPass2(e.target.value)
-                                if (checkPassMatch) {
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Control
+                type="password"
+                placeholder="Confirm Password"
+                value={pass2}
+                onChange={(e) => {
+                  setPass2(e.target.value);
+                  checkPassMatch(pass1,e.target.value);
+                }}
+              />
+            </Form.Group>
 
-                                } else {
-                                    
-                                }
-
-                            }} />
-                        </Form.Group>
-
-                        <Button variant="secondary" type="submit" onClick={handleChangePass}>
-                            Submit
-                        </Button>
-                    </Form>
-                </Modal.Body>
-            </Modal>
-        </div>
-    )
-};
+            <Button
+              variant="secondary"
+              type="submit"
+              onClick={handleChangePass}
+              disabled={!passMatch}
+            >
+              Submit
+            </Button>
+          </Form>
+        </Modal.Body>
+      </Modal>
+    </div>
+  );
+}
