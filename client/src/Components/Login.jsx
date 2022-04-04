@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import AuthService from "../Services/AuthService";
 import { AuthContext } from "../Context/AuthContext";
 
 const Login = props => {

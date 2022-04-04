@@ -4,7 +4,6 @@ const User = require('../Models/User');
 
 router.post("/send-email", async (req, res) => {
     let message = req.body.message;
-    console.log(":"+message);
     let emailList = "";
     let transporter = nodemailer.createTransport({
       host: "smtp.office365.com",

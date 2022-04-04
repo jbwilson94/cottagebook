@@ -59,7 +59,6 @@ userRouter.delete('/delete', passport.authenticate('jwt', { session: false }), (
 
 userRouter.patch('/change-pass', (req, res) => {
     const { username, password } = req.body;
-    console.log(username);
     User.findOne({username:[username]}, (error,user) => {
         if(error) console.log(error);
         else {
