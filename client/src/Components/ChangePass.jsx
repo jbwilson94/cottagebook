@@ -18,6 +18,7 @@ export default function ChangePass({ show, setShow, username }) {
   };
 
   async function changePass() {
+    setShow(false);
     await axios.patch("/user/change-pass", {
       username:username, password:pass1
     });
