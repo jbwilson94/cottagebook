@@ -1,5 +1,6 @@
 import { Form, Modal, Button } from "react-bootstrap";
 import { useState } from "react";
+import axios from 'axios';
 
 export default function ChangePass({ show, setShow, username }) {
   const [pass1, setPass1] = useState("");
@@ -13,7 +14,14 @@ export default function ChangePass({ show, setShow, username }) {
 
   const handleChangePass = (e) => {
     e.preventDefault();
+    changePass();
   };
+
+  async function changePass() {
+    await axios.patch("/user/change-pass", {
+      username:username, password:pass1
+    });
+  }
 
   function checkPassMatch(value1, value2) {
     if(value1 === "") {

@@ -8,13 +8,12 @@ const Login = props => {
     const [error, setError] = useState("");
 
     const onChange = e => {
-        setUser({ ...user, [e.target.name]: e.target.value })
+        setUser({ ...user, [e.target.name]: e.target.value });
     }
 
     const onSubmit = e => {
-        console.log("hi");
         e.preventDefault();
-
+        setUser({ ...user, username: user.username.toLowerCase()});
         fetch('user/login',{
             method: "post",
             body: JSON.stringify(user),
@@ -24,7 +23,7 @@ const Login = props => {
         }).then(async (response) => {
             if(!response.ok) {
                 if(response.status === 400) {
-                    setError("Please fill out all the feilds correctly!");
+                    setError("Please fill all the feilds correctly!");
                 } else if(response.status === 401){
                     setError("Invalid email and password combination");
                 } else {
@@ -68,9 +67,9 @@ const Login = props => {
                         name="username" 
                         className="form-control"
                         id="floatingInput" 
-                        placeholder="username" 
+                        placeholder="Email" 
                         onChange={onChange}/>
-                    <label htmlFor="floatingInput">Username</label>
+                    <label htmlFor="floatingInput">Email</label>
                 </div>
                 <div className ="form-floating">
                     <input 

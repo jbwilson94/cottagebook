@@ -13,9 +13,16 @@ const UserSchema = mongoose.Schema({
     role:{
         type: String,
         enum: ['user','admin'],
+        default: 'user',
         required: true
     }
 })
+
+UserSchema.methods.setPassword = function(pass) {
+    this.password = pass;
+    this.save();
+    
+}
 
 // Passowrd Encryption
 UserSchema.pre('save', function(next){

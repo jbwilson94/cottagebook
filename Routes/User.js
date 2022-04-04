@@ -4,6 +4,7 @@ const passport = require('passport');
 const passportConfig = require('../passport');
 const JWT = require('jsonwebtoken');
 const User = require('../Models/User');
+const bcrypt = require('bcrypt');
 
 const signToken = userID => {
     return JWT.sign({
@@ -55,5 +56,16 @@ userRouter.delete('/delete', passport.authenticate('jwt', { session: false }), (
     const { username } = req.body;
     User.findOneAndDelete({ username });
 })
+
+userRouter.patch('/change-pass', (req, res) => {
+    const { username, password } = req.body;
+    console.log(username);
+    User.findOne({username:[username]}, (error,user) => {
+        if(error) console.log(error);
+        else {
+            user.setPassword(password);
+        }
+    })
+});
 
 module.exports = userRouter;
