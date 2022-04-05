@@ -1,36 +1,59 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
 .login {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-
+  
     .login-form {
-        min-width: 300px;
+      min-width: 300px;
+      width: 20vw;
+  
+      .error-text {
+        color: red;
+      }
+  
+      .login-title {
+        text-align: center;
+        font-size: xx-large;
+        color: darkgreen;
+      }
+  
+      .btn-login {
+        background-color: darkgreen;
+        margin-top: 15px;
+  
+        &:hover {
+          background-color: forestgreen;
+        }
+      }
+    }
+  }
+
+.cottage-app {
+    display: flex;
+      
+      .cal-container {
+        
+      }
+      
+      .navbar {
+        background-color: aqua;
         width: 20vw;
-
-        .error-text {
-            color: red;
-        }
-
-        .login-title {
-            text-align: center;
-            font-size: xx-large;
-            color:darkgreen;
-        }
-
-        .btn-login {
-            background-color: darkgreen;
-            margin-top: 15px;
-
-            &:hover {
-                background-color: forestgreen;
-            }
-        }
-    }
+        height: 100vh;
+      }
 }
 
-.navbar {
-    .container {
-        max-width: 95vw;
-    }
-}

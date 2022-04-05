@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Calendar from './Calendar';
 import NavBar from './NavBar';
+import NavBarV2 from './NavBarV2';
 import AddEvent from './AddEvent';
 import Register from './Register';
-import '../Styleshseets/home.css';
 
 const Home = () => {
     const [view, setView] = useState('cal');
@@ -43,8 +43,8 @@ const Home = () => {
     }
 
     return (
-        <div>
-            <NavBar 
+        <div className="cottage-app">
+            <NavBarV2
                 setView={setView}
                 events={events}/>
             { renderView() }
