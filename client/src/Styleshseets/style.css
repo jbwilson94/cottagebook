@@ -5,10 +5,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
 .login {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -50,11 +46,134 @@ code {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+}
+
+.cottage-app .cal-container {
+  padding: 1rem;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .cottage-app .navbar {
-  background-color: aqua;
-  width: 20vw;
-  height: 100vh;
+  width: 201px;
+  display: block;
+  background-color: #202124;
+  -webkit-transition: margin 700ms;
+  transition: margin 700ms;
+}
+
+.cottage-app .navbar button {
+  margin-top: 10px;
+  border: none;
+  padding: 15px 0px 15px 10px;
+  text-align: left;
+  color: white;
+  background-color: #202124;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.cottage-app .navbar button:hover {
+  background-color: #42414d;
+}
+
+.cottage-app .navbar button .icon {
+  color: white;
+  padding-right: 12px;
+  padding-left: 20px;
+}
+
+.cottage-app .navbar .navbar-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.cottage-app .navbar .navbar-head .navbar-brand {
+  color: white;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 80%;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+}
+
+.cottage-app .navbar .navbar-head .menu-toggle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  width: 20%;
+  margin-top: 6px;
+}
+
+.cottage-app .navbar .navbar-head .menu-toggle span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+  width: 25px;
+  height: 2px;
+  border-radius: 30px;
+}
+
+.cottage-app .navbar .navbar-head .menu-toggle span:first-child {
+  -webkit-transform: rotate(45deg) translate(-1px, 2px);
+          transform: rotate(45deg) translate(-1px, 2px);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.cottage-app .navbar .navbar-head .menu-toggle span:nth-child(2) {
+  opacity: 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.cottage-app .navbar .navbar-head .menu-toggle span:nth-child(3) {
+  -webkit-transform: rotate(-45deg) translate(1px, -4px);
+          transform: rotate(-45deg) translate(1px, -4px);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.cottage-app .navbar .navbar-head .menu-toggle #span3 {
+  margin-bottom: 0px;
+}
+
+.cottage-app .navbar .navbar-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 /*# sourceMappingURL=style.css.map */

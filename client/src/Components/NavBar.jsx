@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import AuthService from "../Services/AuthService";
 import { AuthContext } from "../Context/AuthContext";
 import Account from "./Account";
-import '../Styleshseets/navbar.css';
 
 const NavBar = ({ setView, events }) => {
     const { user, setIsAuthenticated, setUser } = useContext(AuthContext);

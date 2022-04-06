@@ -36,7 +36,7 @@ export default function Calendar({ events }) {
     }
 
     return (
-        <div className="cal-container">
+        <div className="cal-container" id="cal-container">
             {/* Assigns the colors of events */}
             {setColors()}
 
