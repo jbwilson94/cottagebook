@@ -36,11 +36,13 @@ body {
       width: 100%;
       align-items: center;
       justify-content: center;
-      height: 50px;
-      margin-bottom: 30px;
+      height: 60px;
+      padding-bottom: 10px;
+      border-bottom: solid 1px white;
 
       .navbar-brand {
         user-select: none;
+        font-size: xx-large;
       }
 
       button {
@@ -61,7 +63,7 @@ body {
       button {
         color: white;
         border: none;
-        padding: 20px 0px 20px 20%;
+        padding: 25px 0px 25px 20%;
         background-color: transparent;
         display: flex;
         align-items: center;
@@ -222,20 +224,10 @@ body {
   }
 }
 
-.fc-button {
-  color: black;
-  text-decoration: none;
-  background-color: black;
-}
-
 .fc-event {
   cursor: pointer;
   padding: 3px 0px 3px 20px;
   margin-bottom: 2px;
-}
-
-.fc .fc-button-primary {
-  text-decoration: none;
 }
 
 .fc-toolbar-title {

@@ -63,6 +63,7 @@ const Home = () => {
     document.getElementById("main").style.transform = "translateX(300px)";
     document.getElementById("navbar").style.left = "0";
     document.getElementById("screen").style.display = "block";
+    document.getElementById("navbar").style.boxShadow = "1px 1px 5px black";
   }
 
   function hideNav() {
@@ -70,6 +71,8 @@ const Home = () => {
     document.getElementById("main").style.transform = "translateX(0)";
     document.getElementById("navbar").style.left = "-300px";
     document.getElementById("screen").style.display = "none";
+    document.getElementById("navbar").style.boxShadow = "none";
+
   }
 
   return (
@@ -83,7 +86,9 @@ const Home = () => {
         <Calendar events={events} setEvents={setEvents} />
       </div>
 
-      <NavBarV2 setView={setView}/>
+      <NavBarV2 
+        setView={setView}
+        hideNav={hideNav}/>
 
       <div className="window" id="container">
         <button

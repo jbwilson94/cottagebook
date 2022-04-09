@@ -48,8 +48,9 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 50px;
-  margin-bottom: 30px;
+  height: 60px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px white;
 }
 
 .cottage-app .navbar .navbar-head .navbar-brand {
@@ -57,6 +58,7 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  font-size: xx-large;
 }
 
 .cottage-app .navbar .navbar-head button {
@@ -82,7 +84,7 @@ body {
 .cottage-app .navbar .navbar-menu button {
   color: white;
   border: none;
-  padding: 20px 0px 20px 20%;
+  padding: 25px 0px 25px 20%;
   background-color: transparent;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -259,20 +261,10 @@ body {
   color: gray;
 }
 
-.fc-button {
-  color: black;
-  text-decoration: none;
-  background-color: black;
-}
-
 .fc-event {
   cursor: pointer;
   padding: 3px 0px 3px 20px;
   margin-bottom: 2px;
-}
-
-.fc .fc-button-primary {
-  text-decoration: none;
 }
 
 .fc-toolbar-title {

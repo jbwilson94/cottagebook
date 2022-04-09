@@ -1,22 +1,16 @@
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import AuthService from "../Services/AuthService";
 import { AuthContext } from "../Context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarPlus,
   faXmark,
-  faUser,
   faDoorOpen,
+  faGear,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function NavBarV2({ setView }) {
-  const [toggle, setToggle] = useState(false);
-  const { user, setIsAuthenticated, setUser } = useContext(AuthContext);
-
-  useEffect(() => {
-    handleToggle();
-    console.log(navigator.userAgent);
-  }, []);
+export default function NavBarV2({ setView, hideNav }) {
+  const { setIsAuthenticated, setUser } = useContext(AuthContext);
 
   const onClickLogoutHandler = () => {
     AuthService.logout().then((data) => {
@@ -27,16 +21,12 @@ export default function NavBarV2({ setView }) {
     });
   };
 
-  // Handles the opening and closing of the nav menu
-  const handleToggle = () => {
-    
-  };
-
   return (
     <div className="navbar" id="navbar">
       <div className="navbar-head">
         <div className="navbar-brand">Cottage Book</div>
-        <button>
+        <button
+          onClick={() => hideNav()}>
           <FontAwesomeIcon icon={faXmark} /> 
         </button>
       </div>
@@ -49,10 +39,11 @@ export default function NavBarV2({ setView }) {
           Book
         </button>
         
-        {/* <button className="nav-button">
+        <button className="nav-button">
           <FontAwesomeIcon icon={faGear} className="icon" />
           Settings
         </button>
+        {/*}
         <button className="nav-button">
           <FontAwesomeIcon icon={faUser} className="icon" />
           Account
