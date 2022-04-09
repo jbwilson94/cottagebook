@@ -3,6 +3,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 .login {
@@ -42,23 +43,25 @@ body {
   background-color: forestgreen;
 }
 
-.cottage-app {
+.main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background-color: white;
   height: 100vh;
   width: 100vw;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
-.cottage-app .cal-container {
+.main .cal-container {
   padding: 1rem;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
 
-.cottage-app .navbar {
+.main .navbar {
   width: 201px;
   display: block;
   background-color: #202124;
@@ -66,7 +69,7 @@ body {
   transition: margin 700ms;
 }
 
-.cottage-app .navbar button {
+.main .navbar button {
   margin-top: 10px;
   border: none;
   padding: 15px 0px 15px 10px;
@@ -84,24 +87,25 @@ body {
           justify-content: start;
 }
 
-.cottage-app .navbar button:hover {
+.main .navbar button:hover {
   background-color: #42414d;
 }
 
-.cottage-app .navbar button .icon {
+.main .navbar button .icon {
   color: white;
   padding-right: 12px;
   padding-left: 20px;
 }
 
-.cottage-app .navbar .navbar-head {
+.main .navbar .navbar-head {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 20px;
+  padding-bottom: 2px;
 }
 
-.cottage-app .navbar .navbar-head .navbar-brand {
+.main .navbar .navbar-head .navbar-brand {
   color: white;
   cursor: default;
   -webkit-user-select: none;
@@ -114,7 +118,7 @@ body {
   padding-left: 10px;
 }
 
-.cottage-app .navbar .navbar-head .menu-toggle {
+.main .navbar .navbar-head .menu-toggle {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -133,7 +137,7 @@ body {
   margin-top: 6px;
 }
 
-.cottage-app .navbar .navbar-head .menu-toggle span {
+.main .navbar .navbar-head .menu-toggle span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -143,31 +147,31 @@ body {
   border-radius: 30px;
 }
 
-.cottage-app .navbar .navbar-head .menu-toggle span:first-child {
+.main .navbar .navbar-head .menu-toggle span:first-child {
   -webkit-transform: rotate(45deg) translate(-1px, 2px);
           transform: rotate(45deg) translate(-1px, 2px);
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-.cottage-app .navbar .navbar-head .menu-toggle span:nth-child(2) {
+.main .navbar .navbar-head .menu-toggle span:nth-child(2) {
   opacity: 0;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-.cottage-app .navbar .navbar-head .menu-toggle span:nth-child(3) {
+.main .navbar .navbar-head .menu-toggle span:nth-child(3) {
   -webkit-transform: rotate(-45deg) translate(1px, -4px);
           transform: rotate(-45deg) translate(1px, -4px);
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-.cottage-app .navbar .navbar-head .menu-toggle #span3 {
+.main .navbar .navbar-head .menu-toggle #span3 {
   margin-bottom: 0px;
 }
 
-.cottage-app .navbar .navbar-menu {
+.main .navbar .navbar-menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -175,5 +179,111 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.window .close-icon {
+  position: absolute;
+  border: none;
+  font-size: xx-large;
+  right: 10px;
+  top: 10px;
+  -webkit-transform: translateX(1000px);
+          transform: translateX(1000px);
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.window form {
+  width: 50vw;
+}
+
+.window form .input-group {
+  padding: 10px 0px 10px 0px;
+}
+
+.window form .input-group label {
+  width: 100%;
+  padding-bottom: 3px;
+}
+
+.window form .input-group input {
+  width: 100%;
+  padding: 10px 20px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.window form button {
+  width: 100%;
+  background-color: darkgreen;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.window form button:hover {
+  background-color: forestgreen;
+}
+
+.fc-col-header-cell-cushion {
+  color: #202124;
+  text-decoration: none;
+}
+
+.fc-col-header-cell-cushion:hover {
+  color: gray;
+}
+
+.fc-daygrid-day-number {
+  color: #202124;
+  text-decoration: none;
+}
+
+.fc-daygrid-day-number:hover {
+  color: gray;
+}
+
+.fc-button {
+  color: black;
+  text-decoration: none;
+  background-color: black;
+}
+
+.fc-event {
+  cursor: pointer;
+  padding: 3px 0px 3px 20px;
+  margin-bottom: 2px;
+}
+
+.fc .fc-button-primary {
+  text-decoration: none;
+}
+
+.fc-toolbar-title {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 /*# sourceMappingURL=style.css.map */

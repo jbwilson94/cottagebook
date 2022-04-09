@@ -4,7 +4,6 @@ import { AuthContext } from '../Context/AuthContext';
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import EventCard from './EventCard';
-import '../Styleshseets/cal.css'
 import axios from 'axios';
 
 export default function Calendar({ events }) {
