@@ -58,7 +58,8 @@ export default function Calendar({ events }) {
                 initialView="dayGridMonth"
                 height='100%'
                 headerToolbar={{
-                    start: 'title',
+                    start: '',
+                    center: 'title',
                     end: 'prev,next'
                 }}/>
         </div>

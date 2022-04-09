@@ -1,17 +1,15 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Calendar from "./Calendar";
-import NavBar from "./NavBar";
 import NavBarV2 from "./NavBarV2";
-import AddEvent from "./AddEvent";
-import Register from "./Register";
 import Book from "./Book";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   const [view, setView] = useState("");
   const [events, setEvents] = useState([]);
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   async function loadEvents() {
     setEvents(await (await axios.get("/api/calendar/get-events")).data);
@@ -48,9 +46,10 @@ const Home = () => {
   }
 
   function changeView() {
-      document.getElementById("main").style.transform = "translateY(-100vh)";
-      document.getElementById("container").style.transform = "translateY(-100vh)";
-      document.getElementById("close-icon").style.transform = "translateY(0)";
+    if(isNavOpen) hideNav();
+    document.getElementById("main").style.transform = "translateY(-100vh)";
+    document.getElementById("container").style.transform = "translateY(-100vh)";
+    document.getElementById("close-icon").style.transform = "translateY(0)";
   }
 
   function revertView() {
@@ -59,18 +58,40 @@ const Home = () => {
     document.getElementById("container").style.transform = "translateY(0)";
   }
 
+  function showNav() {
+    setIsNavOpen(true);
+    document.getElementById("main").style.transform = "translateX(300px)";
+    document.getElementById("navbar").style.left = "0";
+    document.getElementById("screen").style.display = "block";
+  }
+
+  function hideNav() {
+    setIsNavOpen(false);
+    document.getElementById("main").style.transform = "translateX(0)";
+    document.getElementById("navbar").style.left = "-300px";
+    document.getElementById("screen").style.display = "none";
+  }
+
   return (
     <div className="cottage-app">
+      <div id="screen" onClick={() => hideNav()}></div>
+
       <div className="main" id="main">
-        <NavBarV2 setView={setView} events={events} />
+        <button className="toggle" onClick={() => showNav()}>
+          <FontAwesomeIcon icon={faBars} />
+        </button>
         <Calendar events={events} setEvents={setEvents} />
       </div>
+
+      <NavBarV2 setView={setView}/>
+
       <div className="window" id="container">
-        <button 
-            className="close-icon"
-            id="close-icon"
-            onClick={() => revertView()}>
-            <FontAwesomeIcon icon={faXmark} className="icon" />
+        <button
+          className="close-icon"
+          id="close-icon"
+          onClick={() => revertView()}
+        >
+          <FontAwesomeIcon icon={faXmark} />
         </button>
         {view ? renderView() : null}
       </div>
