@@ -6,6 +6,7 @@ body {
 }
 
 .cottage-app {
+  position: relative;
   overflow: hidden;
 }
 
