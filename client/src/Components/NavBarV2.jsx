@@ -7,15 +7,18 @@ import {
   faXmark,
   faDoorOpen,
   faGear,
+  faAddressCard,
+  faKey
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavBarV2({ setView, hideNav }) {
-  const { setIsAuthenticated, setUser } = useContext(AuthContext);
+  const { setIsAuthenticated, setUser, user } = useContext(AuthContext);
 
   const onClickLogoutHandler = () => {
     AuthService.logout().then((data) => {
       if (data.success) {
         setUser(data.user);
+        console.log(user);
         setIsAuthenticated(false);
       }
     });
@@ -39,10 +42,29 @@ export default function NavBarV2({ setView, hideNav }) {
           Book
         </button>
         
-        <button className="nav-button">
+        { user.role !=='admin' ? null :
+          <button
+            className="nav-button"
+            onClick={() => setView('register')}>
+            <FontAwesomeIcon icon={faAddressCard} className="icon" />
+            Register
+          </button>
+        }
+
+        <button 
+          className="nav-button"
+          onClick={() => setView('settings')}>
           <FontAwesomeIcon icon={faGear} className="icon" />
           Settings
         </button>
+        
+        <button
+          className="nav-button"
+          onClick={() => setView('change-pass')}>
+          <FontAwesomeIcon icon={faKey} className="icon" />
+          Change Password
+        </button>
+
         {/*}
         <button className="nav-button">
           <FontAwesomeIcon icon={faUser} className="icon" />

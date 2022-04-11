@@ -48,8 +48,8 @@ userRouter.get('/admin', passport.authenticate('jwt', { session: false }), (req,
 });
 
 userRouter.get('/authenticated', passport.authenticate('jwt', { session: false }), (req,res) => {
-    const { username, role} = req.user;
-    res.status(200).json({isAuthenticated: true, user: {username, role}});
+    const { username, role, screenName, email} = req.user;
+    res.status(200).json({isAuthenticated: true, user: {username, role, screenName, email}});
 });
 
 userRouter.delete('/delete', passport.authenticate('jwt', { session: false }), (req, res) => {

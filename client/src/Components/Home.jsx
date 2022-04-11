@@ -3,6 +3,9 @@ import axios from "axios";
 import Calendar from "./Calendar";
 import NavBarV2 from "./NavBarV2";
 import Book from "./Book";
+import Register from "./Register";
+import Settings from "./Settings";
+import ChangePass from "./ChangePass";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -28,9 +31,14 @@ const Home = () => {
 
   function renderView() {
     changeView();
-    if (view === "book") {
+    if (view === "book") 
       return <Book loadEvents={loadEvents} revertView={revertView} />;
-    }
+    else if(view === "register")
+      return <Register />
+    else if(view === "settings")
+      return <Settings />
+    else if(view === "change-pass")
+      return <ChangePass />
 
     /*
         else if(view === 'addEvent') 
@@ -48,14 +56,14 @@ const Home = () => {
   function changeView() {
     if(isNavOpen) hideNav();
     document.getElementById("main").style.transform = "translateY(-100vh)";
-    document.getElementById("container").style.transform = "translateY(-100vh)";
+    document.getElementById("window").style.transform = "translateY(-100vh)";
     document.getElementById("close-icon").style.transform = "translateY(0)";
   }
 
   function revertView() {
     setView("");
     document.getElementById("main").style.transform = "translateY(0)";
-    document.getElementById("container").style.transform = "translateY(0)";
+    document.getElementById("window").style.transform = "translateY(0)";
   }
 
   function showNav() {
@@ -78,7 +86,6 @@ const Home = () => {
   return (
     <div className="cottage-app">
       <div id="screen" onClick={() => hideNav()}></div>
-
       <div className="main" id="main">
         <button className="toggle" onClick={() => showNav()}>
           <FontAwesomeIcon icon={faBars} />
@@ -90,7 +97,7 @@ const Home = () => {
         setView={setView}
         hideNav={hideNav}/>
 
-      <div className="window" id="container">
+      <div className="window" id="window">
         <button
           className="close-icon"
           id="close-icon"

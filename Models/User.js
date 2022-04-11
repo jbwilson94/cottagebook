@@ -15,6 +15,14 @@ const UserSchema = mongoose.Schema({
         enum: ['user','admin'],
         default: 'user',
         required: true
+    },
+    screenName:{
+        type: String,
+        default: ''
+    },
+    email:{
+        type: Boolean,
+        default: true
     }
 })
 
