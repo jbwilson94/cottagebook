@@ -34,7 +34,7 @@ export default function Settings({ revertView }) {
   }
 
   async function updateEvents() {
-    const name = user.screenName;
+    let name = user.screenName;
     if(name==="") name = user.username;
   
     try {

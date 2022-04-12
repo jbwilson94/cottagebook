@@ -7,12 +7,15 @@ const Login = props => {
     const [error, setError] = useState("");
 
     const onChange = e => {
-        setUser({ ...user, [e.target.name]: e.target.value });
+        if(e.target.name === "username")
+            setUser({ ...user, [e.target.name]: e.target.value.toLowerCase() });
+        else setUser({ ...user, [e.target.name]: e.target.value });
     }
 
     const onSubmit = e => {
         e.preventDefault();
-        setUser({ ...user, username: user.username.toLowerCase()});
+        setUser({ ...user, username: user.username });
+        console.log(user)
         fetch('user/login',{
             method: "post",
             body: JSON.stringify(user),
@@ -67,7 +70,8 @@ const Login = props => {
                         className="form-control"
                         id="floatingInput" 
                         placeholder="Email" 
-                        onChange={onChange}/>
+                        onChange={onChange}
+                        value={user.username}/>
                     <label htmlFor="floatingInput">Email</label>
                 </div>
                 <div className ="form-floating">
@@ -77,7 +81,8 @@ const Login = props => {
                         className ="form-control" 
                         id="floatingPassword" 
                         placeholder="Password" 
-                        onChange={onChange}/>
+                        onChange={onChange}
+                        value={user.password}/>
                     <label htmlFor="floatingPassword">Password</label>
                 </div>
 
