@@ -30,10 +30,10 @@ userRouter.post('/register', ( req,res ) => {
 
 userRouter.post('/login', passport.authenticate('local', { session : false }), (req,res) => {
     if(req.isAuthenticated()){
-        const { _id, username, role } = req.user;
+        const { _id, username, role, screenName, email } = req.user;
         const token = signToken( _id );
         res.cookie('access_token', token, {httpOnly: true, sameSite: true});
-        res.status(200).json({isAuthenticated: true, user: { username, role }});
+        res.status(200).json({isAuthenticated: true, user: { username, role, screenName, email  }});
     }
 });
 
@@ -63,6 +63,16 @@ userRouter.patch('/change-pass', (req, res) => {
         if(error) console.log(error);
         else {
             user.setPassword(password);
+        }
+    })
+});
+
+userRouter.patch('/update-settings', (req, res) => {
+    const { screenName, email, username } = req.body;
+    User.findOne({username:[username]}, (error,user) => {
+        if(error) console.log(error);
+        else {
+            user.updateSettings(screenName,email);
         }
     })
 });

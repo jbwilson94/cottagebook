@@ -26,10 +26,15 @@ const UserSchema = mongoose.Schema({
     }
 })
 
+UserSchema.methods.updateSettings = function(name,bool) {
+    this.screenName = name;
+    this.email = bool;
+    this.save();
+}
+
 UserSchema.methods.setPassword = function(pass) {
     this.password = pass;
     this.save();
-    
 }
 
 // Passowrd Encryption

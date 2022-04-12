@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import AuthService from "../Services/AuthService";
 
-const Register = (props) => {
+const Register = ({ revertView }) => {
   const [user, setUser] = useState({ username: "", password: "", role: "" });
   let timerID = useRef(null);
 
@@ -24,16 +24,18 @@ const Register = (props) => {
     AuthService.register(user).then((data) => {
       resetForm();
     });
+    revertView();
   };
 
   return (
     <form onSubmit={onSubmit}>
       <h3>Add User</h3>
       <div className="input-group">
-        <label for="username"> Username: </label>
+        <label for="new-username"> Username: </label>
         <input
           type="text"
-          name="username"
+          name="new-username"
+          id="new-username"
           value={user.username}
           onChange={onChange}
           placeholder="Enter Username"
@@ -41,16 +43,17 @@ const Register = (props) => {
         />
       </div>
       <div className="input-group">
-        <label for="password"> Password: </label>
+        <label for="new-password"> Password: </label>
         <input
           type="password"
-          name="password"
+          name="new-password"
+          id="new-password"
           value={user.password}
           onChange={onChange}
           placeholder="Enter Password"
         />
       </div>
-      <div className="input-group">
+      <div className="input-group checkmark">
         <label for="role"> Role: </label>
         <input
           type="text"

@@ -6,10 +6,11 @@ import "../Styleshseets/addevent.css";
 export default function Book({ revertView, loadEvents }) {
   const { user } = useContext(AuthContext);
   const [event, setEvent] = useState({
-    title: user.username,
+    title: user.screenName==="" ? user.username : user.screenName,
     start: "",
     end: "",
     people: 1,
+    booker: user.username
   });
 
   async function handleEventAdd(data) {

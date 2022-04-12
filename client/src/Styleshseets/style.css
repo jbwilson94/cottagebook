@@ -174,12 +174,39 @@ body {
   width: 50vw;
 }
 
+.cottage-app .window form .error {
+  color: red;
+  margin: 0;
+  padding: 0;
+}
+
 .cottage-app .window form h3 {
   text-align: center;
 }
 
 .cottage-app .window form .input-group {
   padding: 10px 0px 10px 0px;
+}
+
+.cottage-app .window form .input-group.check {
+  display: inline-block;
+  padding-bottom: 15px;
+}
+
+.cottage-app .window form .input-group.check label {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 5px 0 0;
+}
+
+.cottage-app .window form .input-group.check input {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0;
+  width: 16px;
+  height: 16px;
 }
 
 .cottage-app .window form .input-group label {
@@ -209,6 +236,10 @@ body {
 
 .cottage-app .window form button:hover {
   background-color: forestgreen;
+}
+
+.cottage-app .window form button:disabled {
+  background-color: #9a9a9a;
 }
 
 .login {

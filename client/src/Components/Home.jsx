@@ -16,6 +16,9 @@ const Home = () => {
 
   async function loadEvents() {
     setEvents(await (await axios.get("/api/calendar/get-events")).data);
+    for(let i = 0; i<events.length; i++) {
+      
+    }
   }
 
   useEffect(() => {
@@ -34,11 +37,11 @@ const Home = () => {
     if (view === "book") 
       return <Book loadEvents={loadEvents} revertView={revertView} />;
     else if(view === "register")
-      return <Register />
+      return <Register revertView={revertView}/>
     else if(view === "settings")
-      return <Settings />
+      return <Settings revertView={revertView}/>
     else if(view === "change-pass")
-      return <ChangePass />
+      return <ChangePass revertView={revertView}/>
 
     /*
         else if(view === 'addEvent') 

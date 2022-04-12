@@ -140,12 +140,35 @@ body {
     form {
       width: 50vw;
 
+      .error {
+        color: red;
+        margin: 0;
+        padding: 0;
+      }
+
       h3 {
         text-align: center;
       }
 
       .input-group {
         padding: 10px 0px 10px 0px;
+
+        &.check {
+          display: inline-block;
+          padding-bottom: 15px;
+
+          label {
+            width: fit-content;
+            padding: 0 5px 0 0;
+          }
+
+          input {
+            width: fit-content;
+            padding: 0;
+            width: 16px;
+            height: 16px;
+          }
+        }
 
         label {
           width: 100%;
@@ -174,6 +197,10 @@ body {
 
         &:hover {
           background-color: forestgreen;
+        }
+
+        &:disabled {
+          background-color: rgb(154, 154, 154);
         }
       }
     }

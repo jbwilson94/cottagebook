@@ -18,7 +18,6 @@ export default function NavBarV2({ setView, hideNav }) {
     AuthService.logout().then((data) => {
       if (data.success) {
         setUser(data.user);
-        console.log(user);
         setIsAuthenticated(false);
       }
     });
