@@ -59,7 +59,7 @@ body {
       display: flex;
       flex-direction: column;
       width: 100%;
-
+      
       button {
         color: white;
         border: none;
@@ -128,14 +128,10 @@ body {
       right: 10px;
       top: 10px;
       transform: translateX(1000px);
-      -webkit-border-radius: 50%;
-        -moz-border-radius: 50%;
-        border-radius: 50%;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
+      border-radius: 50%;
       height: 50px;
       width: 50px;
+      background-color: transparent;
 
       &:hover {
         //background-color: white;
@@ -184,12 +180,7 @@ body {
           width: 100%;
           padding: 10px 20px;
           border: 1px solid grey;
-          -webkit-border-radius: 5px;
-          -moz-border-radius: 5px;
           border-radius: 5px;
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
         }
       }
 
@@ -203,12 +194,7 @@ body {
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
         border-radius: 5px;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
 
         &:hover {
           background-color: forestgreen;

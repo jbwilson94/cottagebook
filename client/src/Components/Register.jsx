@@ -12,7 +12,9 @@ const Register = ({ revertView }) => {
   }, []);
 
   const onChange = (e) => {
+
     setUser({ ...user, [e.target.name]: e.target.value });
+
   };
 
   const resetForm = () => {
@@ -31,11 +33,11 @@ const Register = ({ revertView }) => {
     <form onSubmit={onSubmit}>
       <h3>Add User</h3>
       <div className="input-group">
-        <label for="new-username"> Username: </label>
+        <label for="username"> Username: </label>
         <input
           type="text"
-          name="new-username"
-          id="new-username"
+          name="username"
+          id="username"
           value={user.username}
           onChange={onChange}
           placeholder="Enter Username"
@@ -43,11 +45,11 @@ const Register = ({ revertView }) => {
         />
       </div>
       <div className="input-group">
-        <label for="new-password"> Password: </label>
+        <label for="password"> Password: </label>
         <input
           type="password"
-          name="new-password"
-          id="new-password"
+          name="password"
+          id="password"
           value={user.password}
           onChange={onChange}
           placeholder="Enter Password"

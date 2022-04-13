@@ -15,7 +15,6 @@ const Login = props => {
     const onSubmit = e => {
         e.preventDefault();
         setUser({ ...user, username: user.username });
-        console.log(user)
         fetch('user/login',{
             method: "post",
             body: JSON.stringify(user),
