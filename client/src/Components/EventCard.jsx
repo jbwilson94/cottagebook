@@ -19,6 +19,10 @@ export default function EventCard({show, setShow, targetEvent, deleteEvent}) {
         return tempDate.toDateString();
     }
 
+    async function isBooker() {
+        
+    }
+
     function showDeleteButton() {
         return (
             <Modal.Footer>
@@ -41,6 +45,7 @@ export default function EventCard({show, setShow, targetEvent, deleteEvent}) {
                 <h6>From: {targetStart} </h6>
                 <h6>To: {targetEnd} </h6>
                 <h6>Number of People: {targetPeople} </h6>
+                <h6>Email: {targetEvent.event._def.extendedProps.booker}</h6>
             </>
         )
     }
@@ -55,7 +60,7 @@ export default function EventCard({show, setShow, targetEvent, deleteEvent}) {
             <Modal.Body> {showEventInfo()} </Modal.Body>
         
             {/* Delete Button: shows for the users events */}
-            {targetName === user.username ? 
+            {targetEvent.event._def.extendedProps.booker === user.username ? 
                 showDeleteButton() : null
             }
 

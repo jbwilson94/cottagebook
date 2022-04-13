@@ -12,7 +12,7 @@ export default function Calendar({ events }) {
     const { user } = useContext(AuthContext);
 
     function setColors(){
-        for(let i = 0; i<events.length; i++) if(events[i].title!==user.username) {
+        for(let i = 0; i<events.length; i++) if(events[i].booker!==user.username) {
             let tempEvent = events[i];
             let tempArray = events;
             tempEvent = {...tempEvent, backgroundColor: '#343a40'};
