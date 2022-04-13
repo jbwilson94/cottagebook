@@ -8,9 +8,9 @@ const bcrypt = require('bcrypt');
 
 const signToken = userID => {
     return JWT.sign({
-        iss: "12345ab",
+        iss: process.env.SECRET_KEY+'',
         sub: userID
-    }, "12345ab", { expiresIn: "1h" });
+    }, process.env.SECRET_KEY+'', { expiresIn: "1h" });
 }
 
 userRouter.post('/register', ( req,res ) => {

@@ -51,7 +51,7 @@ export default function Settings({ revertView }) {
     <form onSubmit={onSubmit}>
         <h3>Settings</h3>
         <div className='input-group'>
-            <label for="new-username">Username: </label>
+            <label for="new-username">Your Booking Name: (examples 'John Wilson' , 'Dudgeon Family')</label>
             <input
                 type="text"
                 name="new-username"
